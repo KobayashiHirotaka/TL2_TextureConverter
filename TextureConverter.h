@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "externals/DirectXTex/DirectXTex.h"
 
 class TextureConverter
 {
@@ -19,5 +20,12 @@ public:
 private:
 	//テクスチャファイル読み込み
 	void LoadWICTextureFromFile(const std::string& filePath);
+
+private:
+	//画像の情報
+	DirectX::TexMetadata metaData_;
+
+	//画像イメージのコンテナ
+	DirectX::ScratchImage scratchImage_;
 };
 
