@@ -12,10 +12,14 @@ public:
 	~TextureConverter();
 
 	//テクスチャをWICからDDSに変換する
-	void ConvertTextureWICToDDS(const std::string& filePath);
+	void ConvertTextureWICToDDS(const std::string& filePath,
+		int numOptions = 0, char* options[] = nullptr);
 
 	//マルチバイト文字列をワイド文字列に変換
 	static std::wstring ConvertMultiByteStringToWideString(const std::string& mString);
+
+	//使用方法を出力(表示)する
+	static void OutputUsage();
 
 private:
 	//テクスチャファイル読み込み
@@ -25,7 +29,7 @@ private:
 	void SeparateFilePath(const std::wstring& filePath);
 
 	//DDSテクスチャとしてファイル書き出し
-	void SaveDDSTextureToFile();
+	void SaveDDSTextureToFile(int numOptions, char* options[]);
 
 private:
 	//画像の情報
